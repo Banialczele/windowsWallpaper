@@ -52,7 +52,7 @@ public class NatGeoWallpaper {
     static String fetchedImageURL;
     ZonedDateTime now = ZonedDateTime.now(ZoneId.of("Europe/Warsaw"));
     ZonedDateTime nextRun = now.withHour(9).withMinute(0).withSecond(0);
-    static int displayTime = 1800000;
+    static int displayTime = 900000;
 
     //using FileChooser to select folder we want to get photos from
     static final File dir = new File(photosDir);
