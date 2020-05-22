@@ -15,6 +15,7 @@ import com.sun.jna.platform.win32.WinDef.UINT_PTR;
 import com.sun.jna.win32.StdCallLibrary;
 import com.sun.jna.win32.W32APIFunctionMapper;
 import com.sun.jna.win32.W32APITypeMapper;
+import java.awt.HeadlessException;
 import java.awt.Image;
 import java.awt.MenuItem;
 import java.awt.PopupMenu;
@@ -113,9 +114,13 @@ public class NatGeoWallpaper {
         customizeTime.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 JFrame frame = new JFrame("Wprowadź czas w milisekundach");
-                String value = JOptionPane.showInputDialog(frame, "Podaj wartość w milisekudnach");
-                int x = Integer.parseInt(value);
-                displayTime = x;
+                try {
+                    String value = JOptionPane.showInputDialog(frame, "Podaj wartość w milisekudnach");
+                    int x = Integer.parseInt(value);
+                    displayTime = x;
+                } catch (HeadlessException | NumberFormatException event) {
+
+                }
             }
         });
 
